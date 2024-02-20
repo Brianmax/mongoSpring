@@ -15,6 +15,7 @@ public class ProductoController {
     @PostMapping("/addProduct")
     public Product addProduct(@RequestBody Product product)
     {
+        System.out.println("Creating user from main branch");
         return productoService.addProduct(product);
     }
     @PreAuthorize("hasRole('STUDENT')")
@@ -23,9 +24,11 @@ public class ProductoController {
     {
         return productoService.getById(id);
     }
+    @PreAuthorize("hasRole('PROFESSOR')")
     @GetMapping("/bye")
     public String sayGoodBye()
     {
+        System.out.println("Saying good bye from main branch");
         System.out.println("Another change was made here");
         return "Good bye";
     }
