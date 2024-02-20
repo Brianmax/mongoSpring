@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 public class ProductoController {
     @Autowired
     private ProductoService productoService;
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('STUDENT')")
     @PostMapping("/addProduct")
     public Product addProduct(@RequestBody Product product)
     {
@@ -21,12 +21,14 @@ public class ProductoController {
     @GetMapping("/get/{id}")
     public Product getProduct(@PathVariable String id)
     {
+        System.out.println("Getting a product in Jwt");
         return productoService.getById(id);
     }
+    @PreAuthorize("hasRole('GUEST')")
     @GetMapping("/bye")
     public String sayGoodBye()
     {
-        System.out.println("Another change was made here");
+        System.out.println("Another change from jwt");
         return "Good bye";
     }
 }
