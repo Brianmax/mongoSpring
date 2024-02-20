@@ -21,4 +21,9 @@ public class ProductoController {
     {
         return productoService.getById(id);
     }
+    @GetMapping("/bye")
+    public String sayGoodBye()
+    {
+        return "Good bye";
+    }
 }
