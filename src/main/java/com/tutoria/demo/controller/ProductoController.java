@@ -3,6 +3,8 @@ package com.tutoria.demo.controller;
 import com.tutoria.demo.documents.Product;
 import com.tutoria.demo.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 public class ProductoController {
     @Autowired
     private ProductoService productoService;
-    @PreAuthorize("hasRole('STUDENT')")
     @PostMapping("/addProduct")
     public Product addProduct(@RequestBody Product product)
     {
@@ -32,5 +33,10 @@ public class ProductoController {
         System.out.println("Saying good bye from main branch");
         System.out.println("Another change was made here");
         return "Good bye";
+    }
+    @GetMapping("/findAll")
+    public Page<Product> getAllProducts(Pageable pageable)
+    {
+        return productoService.getAllProducts(pageable);
     }
 }

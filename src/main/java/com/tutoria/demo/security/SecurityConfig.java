@@ -30,7 +30,7 @@ public class SecurityConfig {
         http.cors(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(c->c.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(c->c.requestMatchers("/api/v1/product/bye", "/api/v1/usuario/addUser")
+                .authorizeHttpRequests(c->c.requestMatchers("/api/v1/product/bye", "/api/v1/usuario/addUser","/api/v1/product/addProduct","/api/v1/product/findAll")
                         .permitAll()
                         .anyRequest()
                         .authenticated());
