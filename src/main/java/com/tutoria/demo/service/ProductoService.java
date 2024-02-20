@@ -11,6 +11,7 @@ public class ProductoService {
     private ProductRepo productRepo;
     public Product addProduct(Product product)
     {
+        System.out.println("hello from origin");
         return productRepo.save(product);
     }
     public Product getById(String id)
