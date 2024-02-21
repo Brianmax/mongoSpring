@@ -7,6 +7,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,7 +36,7 @@ public class UsuarioController {
         return usuarioService.addProduct2User(iduser, idProduct);
     }
     @GetMapping("/findAll")
-    public Usuario findAllUsers(Pageable pageable)
+    public Page<Usuario> findAllUsers(Pageable pageable)
     {
 	    return usuarioService.findAll(pageable);
     }
