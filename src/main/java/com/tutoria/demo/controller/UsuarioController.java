@@ -32,4 +32,9 @@ public class UsuarioController {
         String idProduct = ids.get("idProductt");
         return usuarioService.addProduct2User(iduser, idProduct);
     }
+    @GetMapping("/findAll")
+    public Usuario findAllUsers(Pageable pageable)
+    {
+	    return usuarioService.findAll(pageable);
+    }
 }
