@@ -7,7 +7,8 @@ import com.tutoria.demo.repository.ProductRepo;
 import com.tutoria.demo.repository.UsuarioRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import java.util.Optional;
 
 @Service
@@ -18,9 +19,6 @@ public class UsuarioService {
     private ProductRepo productRepo;
     public Usuario addUser(Usuario usuario)
     {
-        // validacion de username
-        // validando genero
-        //
         return usuarioRepo.save(usuario);
     }
     public Usuario findById(String id){
@@ -33,5 +31,9 @@ public class UsuarioService {
         Product product = productRepo.findById(idProduct).orElse(null);
         usuarioDb.setProduct(product);
         return usuarioRepo.save(usuarioDb);
+    }
+    public Page<Usuario> findAll(Pageable pageable)
+    {
+	    return usuarioService.findAll(pageable);
     }
 }
