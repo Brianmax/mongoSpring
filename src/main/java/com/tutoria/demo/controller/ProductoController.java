@@ -42,6 +42,6 @@ public class ProductoController {
     @GetMapping("/hello")
     public String helloCollaborator()
     {
-	return "Hello from colaborator"
+	    return "Hello from colaborator";
     }
 }
