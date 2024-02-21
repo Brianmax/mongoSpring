@@ -33,4 +33,8 @@ public class ProductoController {
         System.out.println("Another change was made here");
         return "Good bye";
     }
+    @GetMapping("hello")
+    public String sayHello(){
+	    return "Hello from nvim"
+    }
 }
