@@ -39,4 +39,9 @@ public class ProductoController {
     {
         return productoService.getAllProducts(pageable);
     }
+    @GetMapping("/hello")
+    public String helloCollaborator()
+    {
+	return "Hello from colaborator"
+    }
 }
